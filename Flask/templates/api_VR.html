@@ -1,28 +1,22 @@
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title>Search page</title>
 </head>
 <body>
-    <h1>Hello welcome to about page</h1>
+    <h1>Hello welcome to search page</h1>
 
     <div class = users>
+        <center>
         <form method="POST" action="{{ url_for('about') }}">
-            <h2>Enter yours details</h2> <br>
+            <h2>Enter yours search details</h2> <br>
             <input type="text" name="destination" required minlength="4" maxlength="25" size="28" placeholder="destination"><br>
             <input type="text" name="date_begin" required minlength="4" maxlength="12" size="14" placeholder="date de debut"><br>
             <input type="text" name="date_end" required minlength="4" maxlength="12" size="14" placeholder="date de fin"><br>
+            <input type="text" name="year" required minlength="4" maxlength="12" size="14" placeholder="année"><br>
             <input type="submit" placeholder="send">
         </form>
-        <table border="1" cellpadding="5" cellspacing="5">
-            {% for row in data %}
-                <tr>
-                {% for d in row %}
-                    <td>{{ d }}</td>
-                {% endfor %}
-                </tr>
-            {% endfor %}
-            </table>
+        </center>
     </div>
 </body>
 </html>

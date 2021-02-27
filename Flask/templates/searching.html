@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>searching page</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="table_data">
+        <h1>data display:</h1>
+        <div id = "data">
+            <table border="1" cellpadding="5" cellspacing="5">
+                {% for row in data %}
+                    <tr>
+                    {% for d in row %}
+                        <td>{{ d }}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+    </div>
+</body>
+
+</html>
