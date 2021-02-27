@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>results page</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="table_results">
+        <center>
+        <h1>Results</h1>
+        <div id = "results">
+            <table border="1" cellpadding="5" cellspacing="5">
+                {% for row in results %}
+                    <tr>
+                    {% for d in row %}
+                        <td>{{ d }}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+        <input type="submit" name="mail" placeholder="send_me_Email">
+        </center>
+    </div>
+</body>
+
+</html>
