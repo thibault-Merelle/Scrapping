@@ -1,0 +1,49 @@
+version: "3.3"
+services:
+
+  database:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=pwd
+      - MYSQL_DATABASE=mototravel
+      - MYSQL_USER=root
+    networks:
+      - front-tier
+      - back-tier
+  
+  scrapper:
+    build: ./scrapp
+    environment:
+      - MYSQL_ROOT_PASSWORD=pwd
+      - MYSQL_DATABASE=mototravel
+      - MYSQL_USER=root
+      - MYSQL_HOST=scrapping_database_1
+    depends_on:
+      - "database"
+    command: python3 __main__.py
+    networks:
+      - front-tier
+
+
+  flask:
+    build: ./Flask
+    environment:
+      - FLASK_ENV=development
+      - FLASK_RUN_PORT=4000
+      - MYSQL_ROOT_PASSWORD=pwd
+      - MYSQL_DATABASE=mototravel
+      - MYSQL_USER=root
+      - MYSQL_HOST=scrapping_database_1
+    ports: 
+      - "3002:4000"
+    depends_on:
+      - "scrapper"
+    restart: always
+    command: python3 __init__.py
+    networks:
+      - back-tier
+  
+
+networks:
+  front-tier: {}
+  back-tier: {}

@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search page</title>
+</head>
+<body>
+    <h1>Hello welcome to search page</h1>
+
+    <div class = users>
+        <center>
+        <form method="POST" action="{{ url_for('searching') }}">
+            <h2>Enter yours search details</h2> <br>
+            <input type="text" name="destination" required minlength="4" maxlength="25" size="28" placeholder="destination"><br>
+            <input type="text" name="date_begin" required minlength="4" maxlength="12" size="14" placeholder="date de debut"><br>
+            <input type="text" name="date_end" required minlength="4" maxlength="12" size="14" placeholder="date de fin"><br>
+            <input type="text" name="year" required minlength="4" maxlength="12" size="14" placeholder="année"><br>
+            <input type="submit" placeholder="send">
+        </form>
+        </center>
+    </div>
+</body>
+</html>
