@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>results page</title>
+    <title>searching page</title>
     <meta charset="utf-8" />
 </head>
 <body>
-    <div id="table_results">
-        <center>
-        <h1>Results</h1>
-        <div id = "results">
+    <div id="table_data">
+        <h1>data display:</h1>
+        <div id = "data">
             <table border="1" cellpadding="5" cellspacing="5">
-                {% for row in results %}
+                {% for row in data %}
                     <tr>
                     {% for d in row %}
                         <td>{{ d }}</td>
@@ -19,13 +18,13 @@
                 {% endfor %}
                 </table>
         </div>
-        </center>
         <div id="mailing">
             <form action="#" method="POST">
                 <input type="submit" placeholder="send_me_mail">
             </form>
         </div>
     </div>
+
 </body>
 
 </html>
