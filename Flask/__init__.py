@@ -42,24 +42,49 @@ def index():
        d1 = request.form['date_begin']
        d2 = request.form['date_end']
        y = request.form['year']
-       if dest != "" and d1 !="" and d2 !="":
-           return redirect(url_for('searching',dest=dest, d1=d1, d2=d2))
+       if not dest:
+           return redirect(url_for('searching_dates', d1=d1, d2=d2))
+
+        elif not d1 and not d2:
+            return redirect(url_for('searching-dest', dest=dest))
+
     else:
         return render_template('api.html')
 
+        
 @log
-@app.route('/searching/<dest>/<d1>/<d2>/<y>', methods=['POST', 'GET'])
-def search(dest, d1, d2, y):
+@app.route('/searching-dest/<dest>', methods=['POST', 'GET'])
+def search_dest(dest):
     c = createConnection()
     cur = c.cursor()
     cur.execute('use vintage_ride')
-    cur.execute("SELECT * FROM vintage_ride WHERE destination LIKE %s AND departure_date<=%s AND end_date>=%s AND year LIKE %s;", (dest, d1, d2, y))
+    cur.execute("SELECT * FROM vintage_ride WHERE destination LIKE %s;", (dest))
     results = cur.fetchall()
     return render_template("results.html", results=results)
     if request.method == 'POST':
         mail = request.form["mail"]
         if not mail:
-            return redirect(url_for('searching',dest=dest, d1=d1, d2=d2))
+            return redirect(url_for('searching-dest', dest=dest))
+        else:
+            mailing()
+            return render_template('api.html')
+
+
+
+
+@log
+@app.route('/searching-dates/<d1>/<d2>/<y>', methods=['POST', 'GET'])
+def search_dates(d1, d2, y):
+    c = createConnection()
+    cur = c.cursor()
+    cur.execute('use vintage_ride')
+    cur.execute("SELECT * FROM vintage_ride WHERE departure_date<=%s AND end_date>=%s AND year LIKE %s;", (d1, d2, y))
+    results = cur.fetchall()
+    return render_template("results.html", results=results)
+    if request.method == 'POST':
+        mail = request.form["mail"]
+        if not mail:
+            return redirect(url_for('searching-dates', d1=d1, d2=d2, y=y))
         else:
             mailing()
             return render_template('api.html')

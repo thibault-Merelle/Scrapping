@@ -1,6 +1,9 @@
 import logging
-from scrapp import scrapp_VR
-from sqlconnectors import mototravel_conn
+from scrap_titi import scrapp_VR
+from sqlconnectors import Mototravel_conn
+from bs4 import BeautifulSoup
+import requests
+import itertools
 
 
 logging.basicConfig(level=logging.DEBUG,
@@ -9,53 +12,31 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s : %(levelname)s : %(message)s')
 
 def main():
-    logging.info("init __main__.py")
+    logging.info("\n\n-------------------init __main__.py------------------------ \n")
 
     try:
-        MyVR = scrapp_VR()
-        MyVR.find_title()
-        logging.info("request title success")
-    
+        Myconn = Mototravel_conn()
+        logging.info("create_db conn success")
     except:
-        logging.warning("Failure title request")
-
+        logging.warning("Failure create_db conn")
 
     try:
-        MyVR = scrapp_VR()
-        MyVR.find_dates()
-        logging.info("request dates success")
-    
+        Myconn.create_tables()
+        logging.info("create_tables conn success")
     except:
-        logging.warning("Failure dates request")
+        logging.warning("Failure create_tables conn")
 
     try:
-        MyVR = scrapp_VR()
-        MyVR.explorefind_destinations_levels()
-        logging.info("request destinations_levels success")
+        data = scrapp_VR()
+        data.find_title()
+        data.find_dates()
+        data.find_destinations_levels()
+        data.create_dict()
+        Myconn.insert_tables(data.list_dict)
+        logging.info("insert_tables conn success")
     
     except:
-        logging.warning("Failure destinations_levels request")
-
-
-
-    try:
-        MyDB = mototravel_conn()
-        MyDB.create_tables()
-        logging.info("create_tables success")
-    
-    except:
-        logging.warning("Failure create_tables")
-
-
-    try:
-        MyDB = mototravel_conn()
-        MyDB.insert_tables()
-        logging.info("insert_tables success")
-    
-    except:
-        logging.warning("Failure insert_tables")
-
-
+        logging.warning("Failure insert_tables conn")
 
 
 if __name__=='__main__':
