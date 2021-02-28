@@ -1,5 +1,4 @@
 import mysql.connector
-import os
 
 from flask import Flask, request, jsonify, redirect, render_template, url_for
 
@@ -7,7 +6,7 @@ def log(func):
     def wrapper(*args, **kwargs):
         func_str = func.__name__
         args_str = '\t '.join(args)
-        with open('LOG_init_flask.log', 'w') as f:
+        with open('LOG_scrapp.log', 'w') as f:
             f.write(func_str)
             f.write(args_str)
         return func(*args, **kwargs)
@@ -20,8 +19,8 @@ app = Flask(__name__)
 
 def createConnection():
     c = mysql.connector.connect(
-            host=os.environ['MYSQL_HOST'],
-            user='app1',
+            host='scrapping_database_1',
+            user='root',
             password='pwd',
             auth_plugin='mysql_native_password',
             database='vintage_ride'
@@ -29,9 +28,14 @@ def createConnection():
     return c
 
 
+@log
+@app.route("/")
+def home():
+    return "home"
+
 
 @log
-@app.route('/api_VR', methods=['POST', 'GET'])
+@app.route('/api', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
        dest = request.form['destination']
@@ -41,7 +45,7 @@ def index():
        if dest != "" and d1 !="" and d2 !="":
            return redirect(url_for('searching',dest=dest, d1=d1, d2=d2))
     else:
-        return render_template('api_VR.html')
+        return render_template('api.html')
 
 @log
 @app.route('/searching/<dest>/<d1>/<d2>/<y>', methods=['POST', 'GET'])
@@ -58,7 +62,12 @@ def search(dest, d1, d2, y):
             return redirect(url_for('searching',dest=dest, d1=d1, d2=d2))
         else:
             mailing()
-            return render_template('api_VR.html')
+            return render_template('api.html')
+
+
+
+
+
 # def get_data():
 #     c = mysql.connection.cursor()
 #     c.execute('use vintage_ride')
@@ -100,4 +109,4 @@ def mailing():
     server.quit()
 
 if __name__=='__main__':
-    app.run(host="0.0.0.0", port=3002, debug = True)
+    app.run(host="0.0.0.0", port=4000, debug = True)
