@@ -1,0 +1,45 @@
+2021-02-11 11:44:24,247 : INFO : init __main__.py
+2021-02-11 11:44:24,247 : WARNING : Failure request
+2021-02-11 11:45:12,243 : INFO : init __main__.py
+2021-02-11 11:45:12,243 : WARNING : Failure request
+2021-02-11 11:48:24,966 : INFO : init __main__.py
+2021-02-11 11:48:24,966 : WARNING : Failure request
+2021-02-12 11:23:15,414 : INFO : init __main__.py
+2021-02-12 11:23:15,417 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-12 11:23:15,503 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-12 11:23:15,722 : WARNING : Failure title request
+2021-02-12 11:23:15,724 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-12 11:23:15,772 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-12 11:23:16,007 : INFO : request dates success
+2021-02-12 11:23:16,009 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-12 11:23:16,067 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-12 11:23:16,291 : WARNING : Failure destinations_levels request
+2021-02-12 11:23:16,292 : WARNING : Failure create_tables
+2021-02-12 11:23:16,292 : WARNING : Failure insert_tables
+2021-02-12 11:23:16,292 : WARNING : Failure select_from_db
+2021-02-12 11:23:34,013 : INFO : init __main__.py
+2021-02-12 11:23:34,015 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-12 11:23:34,092 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-12 11:23:34,327 : WARNING : Failure title request
+2021-02-12 11:23:34,329 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-12 11:23:34,402 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-12 11:23:34,629 : INFO : request dates success
+2021-02-12 11:23:34,630 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-12 11:23:34,679 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-12 11:23:34,895 : WARNING : Failure destinations_levels request
+2021-02-12 11:23:34,896 : WARNING : Failure create_tables
+2021-02-12 11:23:34,896 : WARNING : Failure insert_tables
+2021-02-12 11:23:34,896 : WARNING : Failure select_from_db
+2021-02-27 17:42:52,617 : INFO : init __main__.py
+2021-02-27 17:42:52,619 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-27 17:42:52,719 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-27 17:42:52,846 : WARNING : Failure title request
+2021-02-27 17:42:52,848 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-27 17:42:52,941 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-27 17:42:53,069 : INFO : request dates success
+2021-02-27 17:42:53,070 : DEBUG : Starting new HTTPS connection (1): www.vintagerides.com:443
+2021-02-27 17:42:53,163 : DEBUG : https://www.vintagerides.com:443 "GET /calendrier-des-departs/ HTTP/1.1" 200 None
+2021-02-27 17:42:53,292 : WARNING : Failure destinations_levels request
+2021-02-27 17:42:53,292 : WARNING : Failure create_tables
+2021-02-27 17:42:53,292 : WARNING : Failure insert_tables
+2021-02-27 17:42:53,292 : WARNING : Failure select_from_db
