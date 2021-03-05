@@ -25,71 +25,13 @@ The goal of this project is to build a simple front page, making groupes randoml
 
 1.  Clone this repository
     
-2.  cd into it
+2.  open it on your code editor
     
-3.  launch docker-compose:  
-    `docker-compose up`
-    
-4.  connect to local server:  
-    `http://localhost:3002`
+3.  launch it on local.
+   
     
 
-## Routes:
-
-```
-`http://localhost:3002/home`
-
-```
-
-return home for testing connection
-
-```
-`http://localhost:3002/api`
-
-```
-
-return json file to check manualy the api
-
-```
-`http://localhost:3002/dest`
-
-```
-
-return destination research results
-
-```
-`http://localhost:3002/dates`
-
-```
-
-return dates research results
-
-```
-`http://localhost:3002/results`
-
-```
-
-return dest + dates research results
-
-## Architecture:
-
-```
-|- docker-compose.yml
-|- README.md
-|- Flask
-|	|-templates
-|	|- __init__.py
-|	|-Dockerfile
-|
-|- scrapp
-|	|- Dockerfile
-|	|- LOG_scrapp.py
-|	|- __main__.py
-|	|- scrapp.py
-|	|- sqlconnectors.py
-|	|- test-scrapp.py
-
-```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwMDM4NzU5OSw3MTQxMzM4NTBdfQ==
+eyJoaXN0b3J5IjpbLTI4MDA3NDYwLC0zMDAzODc1OTksNzE0MT
+MzODUwXX0=
 -->
