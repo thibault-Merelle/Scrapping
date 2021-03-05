@@ -7,33 +7,21 @@ this project is part of my course at simplon school
 
 # groupes repartition:
 
-The goal of this project is to build a front page, making groupes randomly from a list of names.
+The goal of this project is to build a simple front page, making groupes randomly from a list of names.
 
 # Features:
 
 -   make a simple interface user friendly
 -   store inputs data in cache
--   use 
-    -   by dates (begin, end or both),
-    -   by destinations
--   Add Email sender
+-   use the data to create groupes.
 
 ## Build with:
 
--   Python
--   Flask
--   Jinja2
--   Docker
+-   HTML
+-   CSS
+-   Vanilla JS
 
 ## install and run :
-
-Docker are needed for further steps :  
-if needed, for docker install, look at :
-
-```
-https://docs.docker.com/get-docker/
-
-```
 
 1.  Clone this repository
     
@@ -103,5 +91,5 @@ return dest + dates research results
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzEyMTA2NzU1LDcxNDEzMzg1MF19
+eyJoaXN0b3J5IjpbLTMwMDM4NzU5OSw3MTQxMzM4NTBdfQ==
 -->
