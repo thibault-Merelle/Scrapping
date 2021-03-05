@@ -5,12 +5,9 @@ this project is part of my course at simplon school
 
 ### Microsoft Cloud Developer
 
-# groupes :
+# groupes repartition:
 
-This project is divided in two parts;  
-on the one hand, the scrapper which collects the travel data on the Vintage_ride web site.  
-on the other hand, we store this data in a sql table where our users can access it from a front, with the possibility of sending mails
-
+The goal of this project is to build a front page, making groupes randomly from a list of names.
 # Features:
 
 -   scrap Vintage_ride web site, find all destinations
@@ -105,5 +102,5 @@ return dest + dates research results
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNzkxNTI5Niw3MTQxMzM4NTBdfQ==
+eyJoaXN0b3J5IjpbLTExMzkxODg5NjksNzE0MTMzODUwXX0=
 -->
