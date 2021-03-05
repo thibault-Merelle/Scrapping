@@ -8,11 +8,12 @@ this project is part of my course at simplon school
 # groupes repartition:
 
 The goal of this project is to build a front page, making groupes randomly from a list of names.
+
 # Features:
 
--   scrap Vintage_ride web site, find all destinations
--   store this data in mySQL database
--   make a front for users to select and show selected destination
+-   make a simple interface user friendly
+-   store inputs data in cache
+-   use 
     -   by dates (begin, end or both),
     -   by destinations
 -   Add Email sender
@@ -102,5 +103,5 @@ return dest + dates research results
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzkxODg5NjksNzE0MTMzODUwXX0=
+eyJoaXN0b3J5IjpbNzEyMTA2NzU1LDcxNDEzMzg1MF19
 -->
