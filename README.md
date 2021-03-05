@@ -5,7 +5,7 @@ this project is part of my course at simplon school
 
 ### Microsoft Cloud Developer
 
-# Scrapping_project:
+# groupes :
 
 This project is divided in two parts;  
 on the one hand, the scrapper which collects the travel data on the Vintage_ride web site.  
@@ -105,5 +105,5 @@ return dest + dates research results
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE0MTMzODUwXX0=
+eyJoaXN0b3J5IjpbMTUxNzkxNTI5Niw3MTQxMzM4NTBdfQ==
 -->
