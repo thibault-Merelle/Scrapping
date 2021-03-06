@@ -8,8 +8,8 @@ services:
       - MYSQL_DATABASE=mototravel
       - MYSQL_USER=root
     networks:
-      - front-tier
-      - back-tier
+      - bridge-python
+      - bridge-flask
   
   scrapper:
     build: ./scrapp
@@ -17,12 +17,13 @@ services:
       - MYSQL_ROOT_PASSWORD=pwd
       - MYSQL_DATABASE=mototravel
       - MYSQL_USER=root
+      - MYSQL_AUTH_PLUGIN=mysql_native_password
       - MYSQL_HOST=scrapping_database_1
     depends_on:
       - "database"
     command: python3 __main__.py
     networks:
-      - front-tier
+      - bridge-python
 
 
   flask:
@@ -33,6 +34,7 @@ services:
       - MYSQL_ROOT_PASSWORD=pwd
       - MYSQL_DATABASE=mototravel
       - MYSQL_USER=root
+      - MYSQL_AUTH_PLUGIN=mysql_native_password
       - MYSQL_HOST=scrapping_database_1
     ports: 
       - "3002:4000"
@@ -41,9 +43,9 @@ services:
     restart: always
     command: python3 __init__.py
     networks:
-      - back-tier
+      - bridge-flask
   
 
 networks:
-  front-tier: {}
-  back-tier: {}
+  bridge-python: {}
+  bridge-flask: {}

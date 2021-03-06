@@ -5,11 +5,11 @@ class mototravel_conn:
 
     def __init__(self):
         self.connection = mysql.connector.connect(
-            host='scrapping_database_1',
-            user='root',
-            passwd='pwd',
-            auth_plugin='mysql_native_password',
-            database='mototravel'
+            host=os.environ['MYSQL_HOST'],
+            user=os.environ['MYSQL_USER'],
+            passwd=os.environ['MYSQL_ROOT_PASSWORD'],
+            auth_plugin=os.environ['MYSQL_AUTH_PLUGIN'],
+            database=os.environ['MYSQL_DATABASE']
             )
         self.c = self.connection.cursor()
         self.myclass = scrapp_VR()

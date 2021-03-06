@@ -1,5 +1,5 @@
 import logging
-from scrap_titi import scrapp_VR
+from scrapp import scrapp_VR
 from sqlconnectors import Mototravel_conn
 from bs4 import BeautifulSoup
 import requests
