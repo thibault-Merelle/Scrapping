@@ -1,5 +1,5 @@
 import mysql.connector
-
+import os
 from flask import Flask, request, jsonify, redirect, render_template, url_for
 
 def log(func):
@@ -19,11 +19,11 @@ app = Flask(__name__)
 
 def createConnection():
     c = mysql.connector.connect(
-            host='scrapping_database_1',
-            user='root',
-            password='pwd',
-            auth_plugin='mysql_native_password',
-            database='vintage_ride'
+            host=os.environ['MYSQL_HOST'],
+            user=os.environ['MYSQL_USER'],
+            password=os.environ['MYSQL_ROOT_PASSWORD'],
+            auth_plugin=os.environ['MYSQL_AUTH_PLUGIN'],
+            database=os.environ['MYSQL_DATABASE']
     )
     return c
 
