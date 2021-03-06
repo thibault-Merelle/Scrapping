@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
-
+import logging
+from logger import log
 
 class scrapp_VR:
 
@@ -16,12 +17,12 @@ class scrapp_VR:
         self.dict = {}
         self.list_dict = []
 
-    
+    @log
     def find_title(self):
         for item in self.soup.find_all(class_='departurecard-title'):
             self.mytitle.append(item.text.strip())
 
-
+    @log
     def find_dates(self):
         for item in self.soup.find_all(class_='tripcard-departure-dates'):
             year = item.text.split()[-1]
@@ -31,7 +32,7 @@ class scrapp_VR:
             self.mydates_end.append(tempo_list[1])
             self.mydates_year.append(tempo_list[-1])
 
-
+    @log
     def find_destinations_levels(self):
         i=0
         for item in self.soup.find_all(class_='infos-info'):
@@ -47,6 +48,8 @@ class scrapp_VR:
                 else:
                     self.mydest.append("".join(tempo_list[1:]))
             i+=1
+            
+    @log
     def create_dict(self):
         for ii, i in enumerate(self.mytitle):
             self.dict = {"title" : i, "destination" : self.mydest[ii], "departure_date" : self.mydates_begin[ii], "end_date" : self.mydates_end[ii], "year" : self.mydates_year[ii], "level" : self.mylevel[ii]}
