@@ -1,22 +1,21 @@
 import mysql.connector
 import os
+import logging
+from logger import log
 from flask import Flask, request, jsonify, redirect, render_template, url_for
 
-def log(func):
-    def wrapper(*args, **kwargs):
-        func_str = func.__name__
-        args_str = '\t '.join(args)
-        with open('LOG_scrapp.log', 'w') as f:
-            f.write(func_str)
-            f.write(args_str)
-        return func(*args, **kwargs)
-    return wrapper
+
+logging.basicConfig(filename="LOG_flask.log",
+                    filemode="a",
+                    format='%(asctime)s: %(levelname)s: %(message)s',
+                    level=logging.DEBUG,
+                    datefmt='[%Y-%m-%d %H:%M:%S]')
 
 
 
 app = Flask(__name__)
 
-
+@log
 def createConnection():
     c = mysql.connector.connect(
             host=os.environ['MYSQL_HOST'],
@@ -28,14 +27,14 @@ def createConnection():
     return c
 
 
-@log
 @app.route("/")
+@log
 def home():
     return "home"
 
 
-@log
 @app.route('/api', methods=['POST', 'GET'])
+@log
 def index():
     if request.method == 'POST':
        dest = request.form['destination']
@@ -52,8 +51,8 @@ def index():
         return render_template('api.html')
 
         
-@log
 @app.route('/searching-dest/<dest>', methods=['POST', 'GET'])
+@log
 def search_dest(dest):
     c = createConnection()
     cur = c.cursor()
@@ -72,8 +71,8 @@ def search_dest(dest):
 
 
 
-@log
 @app.route('/searching-dates/<d1>/<d2>/<y>', methods=['POST', 'GET'])
+@log
 def search_dates(d1, d2, y):
     c = createConnection()
     cur = c.cursor()
@@ -118,7 +117,7 @@ def search_dates(d1, d2, y):
 
 import smtplib, ssl
 import threading
-
+@log
 def mailing():
     sender_mail = "test@gmail.com"
     dest_mail = "merelle@gmail.com"
